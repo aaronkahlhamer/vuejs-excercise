@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img class="logo" alt="Vue logo" src="./assets/logo.png" />
     <h1>JSON Forms Vue 2</h1>
     <div class="myform">
       <json-forms
