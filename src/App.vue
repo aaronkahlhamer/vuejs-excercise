@@ -9,6 +9,9 @@
         v-bind:uischema="uischema"
         @change="onChange"
       />
+      <button @click="submit" v-bind:disabled="!validationPassed">
+        Submit
+      </button>
     </div>
   </div>
 </template>
@@ -42,20 +45,33 @@ export default defineComponent({
       // freeze renderers for performance gains
       renderers: Object.freeze(renderers),
       data: {
-        name: "Send email to Adrian",
-        description: "Confirm if you have passed the subject\nHereby ...",
-        done: true,
-        recurrence: "Daily",
-        rating: 3
+        fullName: "",
+        telephone: "",
+        description: "",
+        interest: "",
       },
-      schema,
-      uischema
+      schema: schema,
+      uischema: uischema,
+      validationPassed: false,
     };
   },
   methods: {
+    isEmpty(value: any) {
+      for (let prop in value) {
+        if (!value[prop]) return (this.validationPassed = false);
+      }
+      return (this.validationPassed = true);
+    },
     onChange(event: JsonFormsChangeEvent) {
       this.data = event.data;
     }
+      this.isEmpty(this.data);
+    },
+    submit() {
+      this.validationPassed
+        ? (this.modalVisible = true)
+        : (this.modalVisible = false);
+    },
   },
 });
 </script>
