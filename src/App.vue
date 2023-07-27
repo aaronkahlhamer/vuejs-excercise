@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>JSON Forms Vue 2</h1>
+    <h1>Tell Us More About You</h1>
     <div class="myform">
       <json-forms
         v-bind:data="data"
