@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "fullName": {
+      "type": "string",
+      "pattern": ".{3,}",
+      "description": "Three characters or more"
+    },
+    "telephone": {
+      "type": "string",
+      "pattern": "^[\\d ]*$",
+      "description": "Numbers only please"
+    },
+    "interest": {
+      "type": "string",
+      "enum": [
+        "Programming",
+        "Gaming",
+        "Artificial Intelligence",
+        "Virtual Reality"
+      ]
+    },
+    "description": {
+      "title": "Long Description",
+      "type": "string",
+      "maxLength": 500,
+      "description": "Max length 500 characters"
+    }
+  },
+  "required": ["fullName", "telephone", "interest", "description"]
+}

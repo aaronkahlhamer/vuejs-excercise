@@ -1,0 +1,35 @@
+{
+  "type": "HorizontalLayout",
+  "elements": [
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/fullName",
+          "options": {
+            "placeholder": "e.g., John Doe"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/telephone",
+          "options": {
+            "placeholder": "e.g., 555 555 5555"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/interest"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/description",
+          "options": {
+            "multi": true
+          }
+        }
+      ]
+    }
+  ]
+}
