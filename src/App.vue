@@ -1,6 +1,15 @@
 <template>
   <div id="app">
     <h1>Tell Us More About You</h1>
+
+    <modal
+      v-bind:fullName="data.fullName"
+      v-bind:telephone="data.telephone"
+      v-bind:interest="data.interest"
+      v-bind:description="data.description"
+      v-bind:modalVisible.sync="modalVisible"
+    />
+
     <div class="myform">
       <json-forms
         v-bind:data="data"
@@ -24,6 +33,7 @@ import {
   mergeStyles,
   vanillaRenderers,
 } from "@jsonforms/vue2-vanilla";
+import Modal from "./components/modal.vue";
 import schema from "./assets/data/schema.json";
 import uischema from "./assets/data/uischema.json";
 
@@ -38,7 +48,8 @@ const renderers = [
 export default defineComponent({
   name: "App",
   components: {
-    JsonForms
+    JsonForms,
+    Modal,
   },
   data() {
     return {
@@ -53,6 +64,7 @@ export default defineComponent({
       schema: schema,
       uischema: uischema,
       validationPassed: false,
+      modalVisible: false,
     };
   },
   methods: {
@@ -64,7 +76,6 @@ export default defineComponent({
     },
     onChange(event: JsonFormsChangeEvent) {
       this.data = event.data;
-    }
       this.isEmpty(this.data);
     },
     submit() {
