@@ -19,7 +19,7 @@ import { JsonForms, JsonFormsChangeEvent } from "@jsonforms/vue2";
 import {
   defaultStyles,
   mergeStyles,
-  vanillaRenderers
+  vanillaRenderers,
 } from "@jsonforms/vue2-vanilla";
 import schema from "./assets/data/schema.json";
 import uischema from "./assets/data/uischema.json";
@@ -28,7 +28,7 @@ import uischema from "./assets/data/uischema.json";
 const myStyles = mergeStyles(defaultStyles, { control: { label: "mylabel" } });
 
 const renderers = [
-  ...vanillaRenderers
+  ...vanillaRenderers,
   // here you can add custom renderers
 ];
 
@@ -57,11 +57,5 @@ export default defineComponent({
       this.data = event.data;
     }
   },
-  provide() {
-    return {
-      styles: myStyles
-    };
-  }
 });
 </script>
-
